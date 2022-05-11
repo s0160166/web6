@@ -6,7 +6,7 @@ if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))//Пров
     $login = $_SERVER['PHP_AUTH_USER'];
     $password = $_SERVER['PHP_AUTH_PW'];
 
-    $check_admin = mysqli_query($connect, "SELECT * FROM admin WHERE login = '$login'");//Проверка логина на соответствие
+    $check_admin = mysqli_query($connect, "SELECT * FROM admin WHERE login = '$login';");//Проверка логина на соответствие
     //с логином хранящимся в таблице БД
 
     if(mysqli_num_rows($check_admin) > 0){//Если логины совпали идет проверка пароля на совпадение
