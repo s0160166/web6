@@ -11,7 +11,7 @@ if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))//Пров
 
     if(mysqli_num_rows($check_admin) > 0){//Если логины совпали идет проверка пароля на совпадение
         $admin = mysqli_fetch_assoc($check_admin);
-        if(password_verify($password,$admin['password'])){//Если пароли совпали идет перенаправление на страницу администратора
+        if(password_verify($password,$admin['pass'])){//Если пароли совпали идет перенаправление на страницу администратора
             header('Location: adminroom.php');
         }//Если логин или пароль не совпали то пользователю возращается заголовок 401 Unauthorized и повторный логин может быть
         //соверщен только после полной перезагрузки браузера
